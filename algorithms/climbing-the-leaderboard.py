@@ -13,6 +13,15 @@ if __name__ == "__main__":
     rank_scores = list(set(scores))
     rank_scores.sort()
     
-    for a_score in alice:
-        tmp_rank = sum([scoreboard > a_score for scoreboard in rank_scores]) + 1
-        print(tmp_rank)
+    #print(rank_scores)
+    #print(alice)
+    
+    rank_len = len(rank_scores)
+    rank_i = 0 
+
+    for a in alice:
+        while (rank_i < rank_len) and (a >= rank_scores[rank_i]):
+            rank_i += 1
+        current_rank = rank_len - rank_i + 1
+        print(current_rank)
+        
